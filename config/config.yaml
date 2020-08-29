@@ -1,0 +1,9 @@
+database:
+    port: ${DATABASE_PORT}
+    host: ${DATABASE_HOST}
+    user: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    database: ${DATABASE_NAME}
+rpc:
+    host: ${RPC_HOST}
+    port: ${RPC_PORT}

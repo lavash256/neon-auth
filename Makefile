@@ -8,3 +8,5 @@ BINARY_UNIX=$(BINARY_NAME)_unix
 
 test: 
 	$(GOTEST) -v ./...
+integration-test:
+	$(GOTEST) -v ./... -tags=integration
