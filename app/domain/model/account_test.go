@@ -1,4 +1,4 @@
-package account
+package model
 
 import (
 	"testing"
@@ -27,7 +27,7 @@ func TestAccount(t *testing.T) {
 		},
 		{
 			password: "Test",
-			email:    "test@yandex.ru",
+			email:    "test@test.com",
 			err:      "",
 			message:  "If the data is valid, there should be no error",
 		},

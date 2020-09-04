@@ -1,4 +1,4 @@
-package account
+package model
 
 import (
 	"time"
@@ -71,4 +71,9 @@ func NewAccount(email string, password string) (*Account, error) {
 	}
 
 	return account, nil
+}
+
+//BuildAccount Creates an Account object from the data
+func BuildAccount(ID uint64, email string, password string, status string) *Account {
+	return &Account{ID: ID, Email: email, Password: password, Status: status}
 }
