@@ -1,9 +1,9 @@
 package register
 
 import (
-	"neon-auth/app/interface/persistence"
-	"neon-auth/app/usecase"
-	"neon-auth/app/utility"
+	"neon-auth/src/app/interface/persistence"
+	"neon-auth/src/app/usecase"
+	"neon-auth/src/app/utility"
 )
 
 //AccountUsecaseBuilder is needed to hide the dependencies required to create UseCase

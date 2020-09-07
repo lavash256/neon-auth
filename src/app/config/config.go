@@ -1,8 +1,9 @@
 package config
 
 import (
+	"fmt"
 	"io/ioutil"
-	"neon-auth/app/interface/persistence"
+	"neon-auth/src/app/interface/persistence"
 	"os"
 	"path/filepath"
 
@@ -37,4 +38,25 @@ func LoadConfig(path string) (Config, error) {
 	}
 
 	return config, nil
+}
+
+//Validate checks configuration structures for null values
+func (config *Config) Validate() error {
+	templateError := "%s is empty.Required field"
+	if config.Database.Host == "" {
+		return fmt.Errorf(templateError, "Database host")
+	}
+	if config.Database.Port == "" {
+		return fmt.Errorf(templateError, "Database port")
+	}
+	if config.Database.User == "" {
+		return fmt.Errorf(templateError, "Database user")
+	}
+	if config.Database.Name == "" {
+		return fmt.Errorf(templateError, "Database name")
+	}
+	if config.RPC.Port == "" {
+		return fmt.Errorf(templateError, "Service port")
+	}
+	return nil
 }

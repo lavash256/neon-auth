@@ -1,6 +1,6 @@
 package persistence
 
-import "neon-auth/app/domain/model"
+import "neon-auth/src/app/domain/model"
 
 //MemoryAccountRepository is a stub for account repository
 type MemoryAccountRepository struct {

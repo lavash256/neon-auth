@@ -1,7 +1,7 @@
 package persistence
 
 import (
-	"neon-auth/app/domain/model"
+	"neon-auth/src/app/domain/model"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

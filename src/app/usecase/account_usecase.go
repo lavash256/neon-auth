@@ -2,10 +2,10 @@ package usecase
 
 import (
 	"fmt"
-	"neon-auth/app/domain/model"
-	"neon-auth/app/domain/repository"
-	"neon-auth/app/domain/service"
-	"neon-auth/app/utility"
+	"neon-auth/src/app/domain/model"
+	"neon-auth/src/app/domain/repository"
+	"neon-auth/src/app/domain/service"
+	"neon-auth/src/app/utility"
 )
 
 //AccountUsecaseInterface is Use cases are unit of the one operation for application.

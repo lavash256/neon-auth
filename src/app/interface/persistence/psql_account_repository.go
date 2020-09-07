@@ -3,7 +3,7 @@ package persistence
 import (
 	"database/sql"
 	"fmt"
-	"neon-auth/app/domain/model"
+	"neon-auth/src/app/domain/model"
 
 	_ "github.com/lib/pq" //Is needed to create postgres connection
 )
@@ -27,7 +27,6 @@ type PsqlAccountRepository struct {
 func NewPsqlAccountRepository(config PostgresConfig) (*PsqlAccountRepository, error) {
 	table := "accounts"
 	databaseURL := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", config.Host, config.Port, config.User, config.Password, config.Name)
-	fmt.Printf("DATABASE string %s", databaseURL)
 	db, err := sql.Open("postgres", databaseURL)
 	if err != nil {
 		return nil, err

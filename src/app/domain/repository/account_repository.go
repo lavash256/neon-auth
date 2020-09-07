@@ -1,6 +1,6 @@
 package repository
 
-import "neon-auth/app/domain/model"
+import "neon-auth/src/app/domain/model"
 
 //AccountRepository it is an interface for operations with account storage
 type AccountRepository interface {

@@ -14,7 +14,12 @@ import (
 )
 
 func TestAccountRepositoryIntegrationSaveAccount(t *testing.T) {
-	config := persistence.PostgresConfig{Host: "localhost", Port: "5432", User: "test", Password: "test", Name: "account"}
+	host := os.Getenv("DATABASE_TEST_HOST")
+	port := os.Getenv("DATABASE_TEST_PORT")
+	user := os.Getenv("DATABASE_TEST_USER")
+	password := os.Getenv("DATABASE_TEST_PASSWORD")
+	name := os.Getenv("DATABASE_TEST_NAME")
+	config := persistence.PostgresConfig{Host: host, Port: port, User: user, Password: password, Name: name}
 
 	accountRepoPostgres, err := persistence.NewPsqlAccountRepository(config)
 	if err != nil {
@@ -34,7 +39,12 @@ func TestAccountRepositoryIntegrationSaveAccount(t *testing.T) {
 
 }
 func TestAccountRepositoryIntegrationFindAccount(t *testing.T) {
-	config := persistence.PostgresConfig{Host: "localhost", Port: "5432", User: "test", Password: "test", Name: "account"}
+	host := os.Getenv("DATABASE_TEST_HOST")
+	port := os.Getenv("DATABASE_TEST_PORT")
+	user := os.Getenv("DATABASE_TEST_USER")
+	password := os.Getenv("DATABASE_TEST_PASSWORD")
+	name := os.Getenv("DATABASE_TEST_NAME")
+	config := persistence.PostgresConfig{Host: host, Port: port, User: user, Password: password, Name: name}
 
 	accountRepoPostgres, err := persistence.NewPsqlAccountRepository(config)
 	if err != nil {

@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"neon-auth/app/interface/persistence"
-	"neon-auth/app/utility"
+	"neon-auth/src/app/interface/persistence"
+	"neon-auth/src/app/utility"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

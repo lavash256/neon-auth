@@ -3,10 +3,10 @@ package rpc
 import (
 	"context"
 	"log"
-	"neon-auth/app/interface/persistence"
-	rpc "neon-auth/app/interface/rpc/protocol"
-	"neon-auth/app/usecase"
-	"neon-auth/app/utility"
+	"neon-auth/src/app/interface/persistence"
+	rpc "neon-auth/src/app/interface/rpc/protocol"
+	"neon-auth/src/app/usecase"
+	"neon-auth/src/app/utility"
 	"net"
 	"testing"
 

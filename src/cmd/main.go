@@ -2,11 +2,12 @@ package main
 
 import (
 	"flag"
-	"neon-auth/app/interface/rpc"
-	neonrpc "neon-auth/app/interface/rpc/protocol"
-	"neon-auth/app/register"
-	"neon-auth/config"
+	"neon-auth/src/app/config"
+	"neon-auth/src/app/interface/rpc"
+	neonrpc "neon-auth/src/app/interface/rpc/protocol"
+	"neon-auth/src/app/register"
 	"net"
+	"os"
 
 	"github.com/sirupsen/logrus"
 
@@ -20,7 +21,13 @@ func main() {
 	server := grpc.NewServer()
 	configFile, err := config.LoadConfig(configPath)
 	if err != nil {
-		logrus.Panic(err)
+		logrus.Error(err)
+		os.Exit(1)
+	}
+	err = configFile.Validate()
+	if err != nil {
+		logrus.Error(err)
+		os.Exit(1)
 	}
 
 	//Build UseCase
