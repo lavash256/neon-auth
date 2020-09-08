@@ -4,7 +4,6 @@ import (
 	"context"
 	"log"
 	"neon-auth/internal/interface/persistence"
-	rpc "neon-auth/internal/interface/rpc/protocol"
 	"neon-auth/internal/usecase"
 	"neon-auth/tools"
 	"net"
@@ -21,7 +20,7 @@ func dialer() func(context.Context, string) (net.Conn, error) {
 	accountMemoryRepository := persistence.MemoryAccountRepository{}
 	stubLogger := tools.LoggerStub{}
 	accountUsecase := usecase.NewAccountUsecase(&accountMemoryRepository, &stubLogger)
-	rpc.RegisterAuthServiceServer(server, NewAccountService(accountUsecase))
+	RegisterAuthServiceServer(server, NewAccountService(accountUsecase))
 	go func() {
 		if err := server.Serve(listener); err != nil {
 			log.Fatal(err)
@@ -69,10 +68,10 @@ func TestAccountService(t *testing.T) {
 	}
 	defer conn.Close()
 
-	client := rpc.NewAuthServiceClient(conn)
+	client := NewAuthServiceClient(conn)
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			request := &rpc.CreateAccountRequest{Email: tt.email, Password: tt.password}
+			request := &CreateAccountRequest{Email: tt.email, Password: tt.password}
 
 			_, err := client.CreateAccount(ctx, request)
 			if err != nil {
