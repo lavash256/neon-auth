@@ -1,7 +1,7 @@
 package persistence
 
 import (
-	"neon-auth/src/app/domain/model"
+	"neon-auth/internal/domain/model"
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"

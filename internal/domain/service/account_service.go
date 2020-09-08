@@ -2,7 +2,7 @@ package service
 
 import (
 	"fmt"
-	"neon-auth/src/app/domain/repository"
+	"neon-auth/internal/domain/repository"
 )
 
 //AccountService contains business rules that apply to Account

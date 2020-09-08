@@ -3,10 +3,10 @@ package rpc
 import (
 	"context"
 	"log"
-	"neon-auth/src/app/interface/persistence"
-	rpc "neon-auth/src/app/interface/rpc/protocol"
-	"neon-auth/src/app/usecase"
-	"neon-auth/src/app/utility"
+	"neon-auth/internal/interface/persistence"
+	rpc "neon-auth/internal/interface/rpc/protocol"
+	"neon-auth/internal/usecase"
+	"neon-auth/tools"
 	"net"
 	"testing"
 
@@ -19,7 +19,7 @@ func dialer() func(context.Context, string) (net.Conn, error) {
 	listener := bufconn.Listen(1024 * 1024)
 	server := grpc.NewServer()
 	accountMemoryRepository := persistence.MemoryAccountRepository{}
-	stubLogger := utility.LoggerStub{}
+	stubLogger := tools.LoggerStub{}
 	accountUsecase := usecase.NewAccountUsecase(&accountMemoryRepository, &stubLogger)
 	rpc.RegisterAuthServiceServer(server, NewAccountService(accountUsecase))
 	go func() {

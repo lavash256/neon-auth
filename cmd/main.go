@@ -2,10 +2,10 @@ package main
 
 import (
 	"flag"
-	"neon-auth/src/app/config"
-	"neon-auth/src/app/interface/rpc"
-	neonrpc "neon-auth/src/app/interface/rpc/protocol"
-	"neon-auth/src/app/register"
+	"neon-auth/internal/config"
+	"neon-auth/internal/interface/rpc"
+	neonrpc "neon-auth/internal/interface/rpc/protocol"
+	"neon-auth/internal/register"
 	"net"
 	"os"
 

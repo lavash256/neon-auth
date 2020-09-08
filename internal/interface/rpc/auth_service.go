@@ -2,8 +2,8 @@ package rpc
 
 import (
 	"context"
-	rpc "neon-auth/src/app/interface/rpc/protocol"
-	"neon-auth/src/app/usecase"
+	rpc "neon-auth/internal/interface/rpc/protocol"
+	"neon-auth/internal/usecase"
 )
 
 //AccountService Grpc service implementation

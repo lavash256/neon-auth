@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 	"io/ioutil"
-	"neon-auth/src/app/interface/persistence"
+	"neon-auth/internal/interface/persistence"
 	"os"
 	"path/filepath"
 

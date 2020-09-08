@@ -1,8 +1,8 @@
 package service
 
 import (
-	"neon-auth/src/app/domain/model"
-	"neon-auth/src/app/interface/persistence"
+	"neon-auth/internal/domain/model"
+	"neon-auth/internal/interface/persistence"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

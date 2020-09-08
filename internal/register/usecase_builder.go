@@ -1,9 +1,9 @@
 package register
 
 import (
-	"neon-auth/src/app/interface/persistence"
-	"neon-auth/src/app/usecase"
-	"neon-auth/src/app/utility"
+	"neon-auth/internal/interface/persistence"
+	"neon-auth/internal/usecase"
+	"neon-auth/tools"
 )
 
 //AccountUsecaseBuilder is needed to hide the dependencies required to create UseCase
@@ -14,7 +14,7 @@ func AccountUsecaseBuilder(config persistence.PostgresConfig) (*usecase.AccountU
 	if err != nil {
 		return nil, err
 	}
-	logger := utility.NewLogrusLogger()
+	logger := tools.NewLogrusLogger()
 	accountUsecase := usecase.NewAccountUsecase(accountRepository, logger)
 	return accountUsecase, nil
 }
