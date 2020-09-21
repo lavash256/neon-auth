@@ -3,8 +3,8 @@
 package integration
 
 import (
-	"neon-auth/app/domain/model"
-	"neon-auth/app/interface/persistence"
+	"neon-auth/internal/domain/model"
+	"neon-auth/internal/interface/persistence"
 	"os"
 	"testing"
 

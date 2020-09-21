@@ -52,6 +52,9 @@ test-cover:
 	grep -h -v "^mode:" *.coverprofile >> "coverage/cover.out"
 	rm *.coverprofile
 	go tool cover -html=coverage/cover.out -o=coverage/cover.html
+##integration-test: Run integration tests
+integration-test:$(FILES)
+	$(GOTEST) -v ./... -tags=integration
 
 ##generate-grpc: Generate grpc files
 generate-grpc:
