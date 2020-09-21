@@ -15,7 +15,7 @@ install:
 	go install -v ./...
 ##build: Creating a service binary
 build:
-	$(GOBUILD) -o $(BINARY_NAME) $(PATH_MAIN_FILE)
+	$(GOBUILD) -o bin/$(BINARY_NAME) cmd/main.go
 ##clear: Go clear
 clean:
 	go clean

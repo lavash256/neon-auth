@@ -3,11 +3,12 @@ package rpc
 import (
 	"context"
 	"log"
-	"neon-auth/internal/interface/persistence"
-	"neon-auth/internal/usecase"
-	"neon-auth/tools"
 	"net"
 	"testing"
+
+	"github.com/Lavash95/neon-auth/internal/interface/persistence"
+	"github.com/Lavash95/neon-auth/internal/usecase"
+	"github.com/Lavash95/neon-auth/tools"
 
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc"

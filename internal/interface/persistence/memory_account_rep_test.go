@@ -1,8 +1,9 @@
 package persistence
 
 import (
-	"neon-auth/internal/domain/model"
 	"testing"
+
+	"github.com/Lavash95/neon-auth/internal/domain/model"
 
 	"github.com/stretchr/testify/assert"
 )

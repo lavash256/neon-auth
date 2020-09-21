@@ -1,4 +1,4 @@
-module neon-auth
+module github.com/Lavash95/neon-auth
 
 go 1.14
 

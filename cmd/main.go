@@ -2,11 +2,12 @@ package main
 
 import (
 	"flag"
-	"neon-auth/internal/config"
-	"neon-auth/internal/interface/rpc"
-	"neon-auth/internal/register"
 	"net"
 	"os"
+
+	"github.com/Lavash95/neon-auth/internal/config"
+	"github.com/Lavash95/neon-auth/internal/interface/rpc"
+	"github.com/Lavash95/neon-auth/internal/register"
 
 	"github.com/sirupsen/logrus"
 
