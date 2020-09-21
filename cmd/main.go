@@ -2,10 +2,9 @@ package main
 
 import (
 	"flag"
-	"neon-auth/src/app/config"
-	"neon-auth/src/app/interface/rpc"
-	neonrpc "neon-auth/src/app/interface/rpc/protocol"
-	"neon-auth/src/app/register"
+	"neon-auth/internal/config"
+	"neon-auth/internal/interface/rpc"
+	"neon-auth/internal/register"
 	"net"
 	"os"
 
@@ -38,7 +37,7 @@ func main() {
 
 	//Register GRPC server
 	srv := rpc.NewAccountService(accountUsecase)
-	neonrpc.RegisterAuthServiceServer(server, srv)
+	rpc.RegisterAuthServiceServer(server, srv)
 	addr := configFile.RPC.Host + ":" + configFile.RPC.Port
 
 	l, err := net.Listen("tcp", addr)

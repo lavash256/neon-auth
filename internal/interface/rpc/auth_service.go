@@ -2,8 +2,7 @@ package rpc
 
 import (
 	"context"
-	rpc "neon-auth/src/app/interface/rpc/protocol"
-	"neon-auth/src/app/usecase"
+	"neon-auth/internal/usecase"
 )
 
 //AccountService Grpc service implementation
@@ -19,10 +18,10 @@ func NewAccountService(accountUsecase usecase.AccountUsecaseInterface) *AccountS
 }
 
 // CreateAccount ...
-func (a *AccountService) CreateAccount(ctx context.Context, req *rpc.CreateAccountRequest) (*rpc.CreateAccountResponse, error) {
+func (a *AccountService) CreateAccount(ctx context.Context, req *CreateAccountRequest) (*CreateAccountResponse, error) {
 	if err := a.accountUsecase.CreateAccount(req.GetEmail(), req.GetPassword()); err != nil {
-		return &rpc.CreateAccountResponse{}, err
+		return &CreateAccountResponse{}, err
 	}
-	return &rpc.CreateAccountResponse{}, nil
+	return &CreateAccountResponse{}, nil
 
 }

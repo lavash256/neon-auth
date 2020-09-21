@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 	"io/ioutil"
-	"neon-auth/src/app/interface/persistence"
+	"neon-auth/internal/interface/persistence"
 	"os"
 	"path/filepath"
 
@@ -26,8 +26,11 @@ type RPCConfig struct {
 func LoadConfig(path string) (Config, error) {
 	var config = Config{}
 
-	filename, _ := filepath.Abs(path)
-	yamlConfig, err := ioutil.ReadFile(filename)
+	filename, err := filepath.Abs(path)
+	if err != nil {
+		return config, err
+	}
+	yamlConfig, err := ioutil.ReadFile(filepath.Clean(filename))
 	yamlConfig = []byte(os.ExpandEnv(string(yamlConfig)))
 	if err != nil {
 		return config, err

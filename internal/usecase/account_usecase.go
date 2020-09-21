@@ -2,10 +2,10 @@ package usecase
 
 import (
 	"fmt"
-	"neon-auth/src/app/domain/model"
-	"neon-auth/src/app/domain/repository"
-	"neon-auth/src/app/domain/service"
-	"neon-auth/src/app/utility"
+	"neon-auth/internal/domain/model"
+	"neon-auth/internal/domain/repository"
+	"neon-auth/internal/domain/service"
+	"neon-auth/tools"
 )
 
 //AccountUsecaseInterface is Use cases are unit of the one operation for application.
@@ -15,13 +15,13 @@ type AccountUsecaseInterface interface {
 
 //AccountUsecase is Interface implementation AccountUsecaseInterface
 type AccountUsecase struct {
-	logger      utility.LoggerInterface
+	logger      tools.LoggerInterface
 	accountRepo repository.AccountRepository
 	service     *service.AccountService
 }
 
 //NewAccountUsecase is fabric to create new account usecase
-func NewAccountUsecase(repo repository.AccountRepository, logger utility.LoggerInterface) *AccountUsecase {
+func NewAccountUsecase(repo repository.AccountRepository, logger tools.LoggerInterface) *AccountUsecase {
 	accountServ := service.NewAccountService(repo)
 	return &AccountUsecase{accountRepo: repo, service: accountServ, logger: logger}
 }

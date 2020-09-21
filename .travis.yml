@@ -1,0 +1,21 @@
+language: go
+
+go:
+    - 1.14.x
+install: true
+env:
+    - GO111MODULE=on
+addons:
+    apt:
+        sources:
+            - sourceline: 'ppa:maarten-fonville/protobuf'
+        packages:
+            - libprotobuf-dev
+            - protobuf-compiler
+
+before_script:
+    - make install-tools
+    - make generate-grpc 
+    - make code-analysis
+script:
+    - make test-cover

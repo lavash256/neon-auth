@@ -3,7 +3,7 @@ package persistence
 import (
 	"database/sql"
 	"fmt"
-	"neon-auth/src/app/domain/model"
+	"neon-auth/internal/domain/model"
 
 	_ "github.com/lib/pq" //Is needed to create postgres connection
 )

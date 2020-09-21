@@ -1,4 +1,4 @@
-package utility
+package tools
 
 import "github.com/sirupsen/logrus"
 

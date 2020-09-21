@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"neon-auth/src/app/interface/persistence"
-	"neon-auth/src/app/utility"
+	"neon-auth/internal/interface/persistence"
+	"neon-auth/tools"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -10,7 +10,7 @@ import (
 
 func TestAccountUseCaseCreate(t *testing.T) {
 	accountRepo := persistence.MemoryAccountRepository{}
-	logger := &utility.LoggerStub{}
+	logger := &tools.LoggerStub{}
 	accountUsecase := NewAccountUsecase(&accountRepo, logger)
 	tests := []struct {
 		password string
