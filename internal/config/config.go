@@ -3,9 +3,10 @@ package config
 import (
 	"fmt"
 	"io/ioutil"
-	"neon-auth/internal/interface/persistence"
 	"os"
 	"path/filepath"
+
+	"github.com/Lavash95/neon-auth/internal/interface/persistence"
 
 	"gopkg.in/yaml.v2"
 )

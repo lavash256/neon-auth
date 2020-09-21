@@ -15,7 +15,7 @@ install:
 	go install -v ./...
 ##build: Creating a service binary
 build:
-	$(GOBUILD) -o $(BINARY_NAME) $(PATH_MAIN_FILE)
+	$(GOBUILD) -o bin/$(BINARY_NAME) cmd/main.go
 ##clear: Go clear
 clean:
 	go clean
@@ -25,7 +25,7 @@ env:
 	echo FILES $(FILES)
 
 ##code-analysis: Checking through static code analyzers
-code-analysis: lint vet gosec
+code-analysis: lint vet gosec ineffassign misspell
 ##lint: run go lint on the source files
 lint: 
 	golint $(PACKAGES)
@@ -39,6 +39,12 @@ fmt:
 ##gosec: Check secure errors
 gosec:
 	gosec ./...
+##ineffassign: Detect ineffectual assignments in Go code.
+ineffassign:
+	ineffassign ./*
+##misspell: Correct commonly misspelled English words... quickly.
+misspell:
+	misspell ./*
 
 ##test: Running unit tests
 test:$(FILES)
@@ -65,6 +71,8 @@ install-tools:
 	go get github.com/securego/gosec/v2/cmd/gosec
 	go get -u golang.org/x/lint/golint
 	go get -u github.com/golang/protobuf/protoc-gen-go
+	go get -u github.com/gordonklaus/ineffassign
+	go get -u github.com/client9/misspell/cmd/misspell
 
 help: Makefile
 	@echo " Choose a command run in "$(PROJECTNAME)":"

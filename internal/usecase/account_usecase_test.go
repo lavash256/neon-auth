@@ -1,9 +1,10 @@
 package usecase
 
 import (
-	"neon-auth/internal/interface/persistence"
-	"neon-auth/tools"
 	"testing"
+
+	"github.com/Lavash95/neon-auth/internal/interface/persistence"
+	"github.com/Lavash95/neon-auth/tools"
 
 	"github.com/stretchr/testify/assert"
 )

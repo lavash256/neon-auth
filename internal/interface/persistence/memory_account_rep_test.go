@@ -1,8 +1,9 @@
 package persistence
 
 import (
-	"neon-auth/internal/domain/model"
 	"testing"
+
+	"github.com/Lavash95/neon-auth/internal/domain/model"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -13,6 +14,7 @@ func TestAccountMemoryRepository(t *testing.T) {
 	accountRepository := MemoryAccountRepository{}
 	accountRepository.SaveAccount(account)
 	accountInRepo, err := accountRepository.FindByEmail("test@test.ru")
+	assert.Equal(t, err, nil)
 	assert.Equal(t, account, accountInRepo, "Accounts must be equal")
 
 	newAccount, err := model.NewAccount("new_test@test.ru", "Test")

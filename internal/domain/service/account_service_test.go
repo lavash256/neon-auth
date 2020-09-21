@@ -1,9 +1,10 @@
 package service
 
 import (
-	"neon-auth/internal/domain/model"
-	"neon-auth/internal/interface/persistence"
 	"testing"
+
+	"github.com/Lavash95/neon-auth/internal/domain/model"
+	"github.com/Lavash95/neon-auth/internal/interface/persistence"
 
 	"github.com/stretchr/testify/assert"
 )

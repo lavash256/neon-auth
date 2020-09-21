@@ -2,7 +2,8 @@ package rpc
 
 import (
 	"context"
-	"neon-auth/internal/usecase"
+
+	"github.com/Lavash95/neon-auth/internal/usecase"
 )
 
 //AccountService Grpc service implementation

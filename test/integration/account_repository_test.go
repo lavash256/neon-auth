@@ -23,7 +23,7 @@ func TestAccountRepositoryIntegrationSaveAccount(t *testing.T) {
 
 	accountRepoPostgres, err := persistence.NewPsqlAccountRepository(config)
 	if err != nil {
-		assert.Equal(t, err, nil, "An error occured while connecting to the database in integration tests")
+		assert.Equal(t, err, nil, "An error occurred while connecting to the database in integration tests")
 		os.Exit(1)
 	}
 	account, err := model.NewAccount("test@test.ru", "test")
@@ -48,7 +48,7 @@ func TestAccountRepositoryIntegrationFindAccount(t *testing.T) {
 
 	accountRepoPostgres, err := persistence.NewPsqlAccountRepository(config)
 	if err != nil {
-		assert.Equal(t, err, nil, "An error occured while connecting to the database in integration tests")
+		assert.Equal(t, err, nil, "An error occurred while connecting to the database in integration tests")
 		os.Exit(1)
 	}
 	account, err := model.NewAccount("find@test.ru", "test")

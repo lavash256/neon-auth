@@ -3,7 +3,8 @@ package persistence
 import (
 	"database/sql"
 	"fmt"
-	"neon-auth/internal/domain/model"
+
+	"github.com/Lavash95/neon-auth/internal/domain/model"
 
 	_ "github.com/lib/pq" //Is needed to create postgres connection
 )
