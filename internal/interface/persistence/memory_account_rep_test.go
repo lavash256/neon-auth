@@ -13,6 +13,7 @@ func TestAccountMemoryRepository(t *testing.T) {
 	accountRepository := MemoryAccountRepository{}
 	accountRepository.SaveAccount(account)
 	accountInRepo, err := accountRepository.FindByEmail("test@test.ru")
+	assert.Equal(t, err, nil)
 	assert.Equal(t, account, accountInRepo, "Accounts must be equal")
 
 	newAccount, err := model.NewAccount("new_test@test.ru", "Test")

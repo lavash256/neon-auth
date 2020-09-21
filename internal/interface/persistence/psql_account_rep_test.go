@@ -40,6 +40,7 @@ func TestPsqlRepositoryFindByEmail(t *testing.T) {
 	mock.ExpectQuery("^SELECT (.+)").WillReturnRows(sqlmock.NewRows(result).AddRow(returningID, "test@test.ru", "Password", "Created"))
 	accountRepository := &PsqlAccountRepository{DB: db, NameTable: "account"}
 	account, err := accountRepository.FindByEmail("test@test.ru")
+	assert.Equal(t, err, nil)
 	assert.Equal(t, account.ID, returningID)
 	assert.Equal(t, account.Email, "test@test.ru")
 	assert.Equal(t, account.Password, "Password")
