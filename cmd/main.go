@@ -5,9 +5,9 @@ import (
 	"net"
 	"os"
 
-	"github.com/Lavash95/neon-auth/internal/config"
-	"github.com/Lavash95/neon-auth/internal/interface/rpc"
-	"github.com/Lavash95/neon-auth/internal/register"
+	"github.com/lavash256/neon-auth/internal/config"
+	"github.com/lavash256/neon-auth/internal/interface/rpc"
+	"github.com/lavash256/neon-auth/internal/register"
 
 	"github.com/sirupsen/logrus"
 

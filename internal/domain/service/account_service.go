@@ -3,7 +3,7 @@ package service
 import (
 	"fmt"
 
-	"github.com/Lavash95/neon-auth/internal/domain/repository"
+	"github.com/lavash256/neon-auth/internal/domain/repository"
 )
 
 //AccountService contains business rules that apply to Account

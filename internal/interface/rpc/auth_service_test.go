@@ -6,9 +6,9 @@ import (
 	"net"
 	"testing"
 
-	"github.com/Lavash95/neon-auth/internal/interface/persistence"
-	"github.com/Lavash95/neon-auth/internal/usecase"
-	"github.com/Lavash95/neon-auth/tools"
+	"github.com/lavash256/neon-auth/internal/interface/persistence"
+	"github.com/lavash256/neon-auth/internal/usecase"
+	"github.com/lavash256/neon-auth/tools"
 
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc"

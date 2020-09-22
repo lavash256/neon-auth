@@ -3,10 +3,11 @@
 package integration
 
 import (
-	"neon-auth/internal/domain/model"
-	"neon-auth/internal/interface/persistence"
 	"os"
 	"testing"
+
+	"github.com/lavash256/neon-auth/internal/domain/model"
+	"github.com/lavash256/neon-auth/internal/interface/persistence"
 
 	_ "github.com/lib/pq"
 

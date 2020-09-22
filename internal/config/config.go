@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Lavash95/neon-auth/internal/interface/persistence"
+	"github.com/lavash256/neon-auth/internal/interface/persistence"
 
 	"gopkg.in/yaml.v2"
 )

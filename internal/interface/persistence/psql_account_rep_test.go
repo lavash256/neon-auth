@@ -3,7 +3,7 @@ package persistence
 import (
 	"testing"
 
-	"github.com/Lavash95/neon-auth/internal/domain/model"
+	"github.com/lavash256/neon-auth/internal/domain/model"
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/assert"
