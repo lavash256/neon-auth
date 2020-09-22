@@ -19,3 +19,5 @@ before_script:
     - make code-analysis
 script:
     - make test-cover
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
