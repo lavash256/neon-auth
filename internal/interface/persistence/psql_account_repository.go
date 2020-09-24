@@ -71,3 +71,14 @@ func (repo *PsqlAccountRepository) FindByEmail(email string) (*model.Account, er
 	return account, nil
 
 }
+
+//Close connection database
+func (repo *PsqlAccountRepository) Close() error {
+	err := repo.DB.Close()
+	return err
+}
+
+//GetDbConnect ...
+func (repo *PsqlAccountRepository) GetDbConnect() *sql.DB {
+	return repo.DB
+}

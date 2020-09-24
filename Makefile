@@ -1,7 +1,7 @@
 GOCMD=go
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
-GOTEST=$(GOCMD) test -cover
+GOTEST=$(GOCMD) test
 GOGET=$(GOCMD) get
 BINARY_NAME=neon-auth
 BINARY_UNIX=$(BINARY_NAME)_unix
@@ -10,15 +10,22 @@ PROJECTNAME=$(shell basename "$(PWD)")
 PACKAGES=$(shell go list ./...)
 FILES=$(shell find . -type f -name '*.go' -not -path "./vendor/*")
 
+
+all: 
+	make clean
+	make build
+	make test
+
 ##install: Build and install go application executable
 install:
 	go install -v ./...
 ##build: Creating a service binary
-build:
-	$(GOBUILD) -o bin/$(BINARY_NAME) cmd/main.go
+build: generate-grpc 
+	$(GOBUILD) -o bin/$(BINARY_NAME) cmd/neon-auth/main.go
+	$(GOBUILD) -o bin/neon-migrate cmd/migrate/main.go
 ##clear: Go clear
 clean:
-	go clean
+	go clean -modcache
 ##env: Print useful environment variables to stdout
 env:
 	echo PACKAGES $(PACKAGES)
@@ -67,6 +74,7 @@ install-tools:
 	go get -u github.com/golang/protobuf/protoc-gen-go
 	go get -u github.com/gordonklaus/ineffassign
 	go get -u github.com/client9/misspell/cmd/misspell
+	
 
 help: Makefile
 	@echo " Choose a command run in "$(PROJECTNAME)":"

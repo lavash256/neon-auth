@@ -1,0 +1,4 @@
+*.pb.go
+/bin
+.env
+*docker-compose*

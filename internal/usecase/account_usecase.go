@@ -6,7 +6,7 @@ import (
 	"github.com/lavash256/neon-auth/internal/domain/model"
 	"github.com/lavash256/neon-auth/internal/domain/repository"
 	"github.com/lavash256/neon-auth/internal/domain/service"
-	"github.com/lavash256/neon-auth/tools"
+	"github.com/lavash256/neon-auth/internal/tools"
 )
 
 //AccountUsecaseInterface is Use cases are unit of the one operation for application.

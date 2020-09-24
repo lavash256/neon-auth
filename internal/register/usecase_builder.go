@@ -2,8 +2,8 @@ package register
 
 import (
 	"github.com/lavash256/neon-auth/internal/interface/persistence"
+	"github.com/lavash256/neon-auth/internal/tools"
 	"github.com/lavash256/neon-auth/internal/usecase"
-	"github.com/lavash256/neon-auth/tools"
 )
 
 //AccountUsecaseBuilder is needed to hide the dependencies required to create UseCase

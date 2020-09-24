@@ -10,15 +10,24 @@ COPY go.mod .
 COPY go.sum .
 RUN go mod download
 
-COPY src/ src/
+COPY . /src
+WORKDIR /src
 
-RUN go build -o main src/cmd/main.go
+RUN go build -o bin/neon-auth cmd/neon-auth/main.go 
+RUN go build -o bin/neon-migrate cmd/migrate/main.go
 
 WORKDIR /dist
-RUN cp /build/main .
+RUN cp /src/bin/neon-auth .
+RUN cp /src/bin/neon-migrate .
 
-FROM scratch
-COPY --from=builder /dist/main /
-COPY config/ config
+FROM alpine:3.4
+COPY --from=builder /dist/neon-auth /bin
+COPY --from=builder /dist/neon-migrate /bin
+COPY configs/ config/
+COPY migrations/ migrations/
+COPY tools/entrypoint.sh .
 
-ENTRYPOINT [ "/main", "-config","config/config.yaml"]
+RUN chmod 777 entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
