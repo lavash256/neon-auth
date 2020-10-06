@@ -6,5 +6,4 @@ import "github.com/lavash256/neon-auth/internal/domain/model"
 type AccountRepository interface {
 	SaveAccount(*model.Account) error
 	FindByEmail(string) (*model.Account, error)
-	Close() error
 }

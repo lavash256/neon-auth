@@ -10,7 +10,6 @@ import (
 	"testing"
 
 	"github.com/lavash256/neon-auth/internal/domain/model"
-	"github.com/lavash256/neon-auth/internal/domain/repository"
 	"github.com/lavash256/neon-auth/internal/interface/persistence"
 
 	_ "github.com/lib/pq"
@@ -31,7 +30,7 @@ var (
 )
 
 var (
-	accountRepoPostgres repository.AccountRepository
+	accountRepoPostgres *persistence.PsqlAccountRepository
 )
 
 //Start postgres and create repository
