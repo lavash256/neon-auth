@@ -23,9 +23,3 @@ func (s *MemoryAccountRepository) FindByEmail(email string) (*model.Account, err
 	}
 	return nil, nil
 }
-
-//Close ...
-func (s *MemoryAccountRepository) Close() error {
-	return nil
-
-}

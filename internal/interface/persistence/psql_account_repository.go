@@ -77,8 +77,3 @@ func (repo *PsqlAccountRepository) Close() error {
 	err := repo.DB.Close()
 	return err
 }
-
-//GetDbConnect ...
-func (repo *PsqlAccountRepository) GetDbConnect() *sql.DB {
-	return repo.DB
-}
