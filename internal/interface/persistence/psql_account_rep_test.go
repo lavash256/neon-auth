@@ -28,6 +28,10 @@ func TestPsqlRepositorySaveAccount(t *testing.T) {
 	err = accountRepository.SaveAccount(account)
 	assert.Equal(t, err, nil)
 	assert.Equal(t, account.ID, returningID)
+	defer func() {
+		err = accountRepository.Close()
+		assert.Equal(t, err.Error(), "all expectations were already fulfilled, call to database Close was not expected", "Close database connection")
+	}()
 }
 
 func TestPsqlRepositoryFindByEmail(t *testing.T) {
@@ -45,5 +49,9 @@ func TestPsqlRepositoryFindByEmail(t *testing.T) {
 	assert.Equal(t, account.ID, returningID)
 	assert.Equal(t, account.Email, "test@test.ru")
 	assert.Equal(t, account.Password, "Password")
+	defer func() {
+		err = accountRepository.Close()
+		assert.Equal(t, err.Error(), "all expectations were already fulfilled, call to database Close was not expected", "Close database connection")
+	}()
 
 }

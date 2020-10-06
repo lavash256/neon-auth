@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/lavash256/neon-auth/internal/interface/persistence"
+	"github.com/lavash256/neon-auth/internal/tools"
 	"github.com/lavash256/neon-auth/internal/usecase"
-	"github.com/lavash256/neon-auth/tools"
 
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc"

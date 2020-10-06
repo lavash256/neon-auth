@@ -1,23 +1,43 @@
 language: go
-
 go:
-    - 1.14.x
+- 1.14.x
 install: true
 env:
-    - GO111MODULE=on
+- GO111MODULE=on
 addons:
-    apt:
-        sources:
-            - sourceline: 'ppa:maarten-fonville/protobuf'
-        packages:
-            - libprotobuf-dev
-            - protobuf-compiler
-
+  apt:
+    sources:
+    - sourceline: ppa:maarten-fonville/protobuf
+    packages:
+    - libprotobuf-dev
+    - protobuf-compiler
+    - sshpass
+  ssh_known_hosts:
+  - 52.174.235.67
 before_script:
-    - make install-tools
-    - make generate-grpc 
-    - make code-analysis
+- echo -e "Host $HOST_SERVERntStrictHostKeyChecking non" >> ~/.ssh/config
+- make install-tools
+- make generate-grpc
+- make code-analysis
 script:
-    - make test-cover
+- make test-cover
+- make integration-test
+- docker build --tag "$IMAGE_NAME" .
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
+before_deploy:
+- docker login -u $REGISTRY_USER -p $REGISTRY_PASS
+- docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
+- docker push "${IMAGE_NAME}:latest"
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: ssh $DEPLOY_USER@$HOST_SERVER 'bash neon-project/deploy.sh'
+  on:
+    all_branches: true
+before_install:
+- openssl aes-256-cbc -K $encrypted_db2095f63ba3_key -iv $encrypted_db2095f63ba3_iv
+  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/deploy_rsa
+- ssh-add /tmp/deploy_rsa
