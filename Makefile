@@ -66,7 +66,7 @@ integration-test:$(FILES)
 ##generate-grpc: Generate grpc files
 generate-grpc:
 	echo $(PWD)
-	protoc -I=api/ --go_out=plugins=grpc:internal/interface/rpc  api/neon_auth.proto
+	protoc -I=neon-communication/ --go_out=plugins=grpc:internal/interface/rpc  neon-communication/neon_auth.proto
 ##install-tools: Install vet,gosec,lint
 install-tools:
 	go get github.com/securego/gosec/v2/cmd/gosec

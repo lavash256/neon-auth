@@ -1,0 +1,3 @@
+[submodule "neon-communication"]
+	path = neon-communication
+	url = https://github.com/lavash256/neon-communication
